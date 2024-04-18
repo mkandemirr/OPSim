@@ -1,0 +1,5 @@
+#OptAirSurface
+
+/matPropTable/optAirSurface/addProperty REFLECTIVITY data/matPropTable/air/reflectivity.txt eV unitless
+/matPropTable/optAirSurface/addProperty EFFICIENCY data/matPropTable/air/efficiency.txt eV unitless 
+
