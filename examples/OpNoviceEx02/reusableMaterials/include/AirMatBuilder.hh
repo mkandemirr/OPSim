@@ -10,7 +10,7 @@ class G4Material;
 class AirMatBuilder: public VMaterialBuilder{
 
   public:
-    AirMatBuilder(G4bool enableOpticalProperty=false); 
+    AirMatBuilder(G4bool enableMPT = false); 
     virtual ~AirMatBuilder();
 
     virtual G4Material* Build() override;

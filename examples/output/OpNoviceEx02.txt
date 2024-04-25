@@ -25,23 +25,23 @@ userDetector->Construct() start.
 Material construction <<water>> has been created.
 /control/execute reusableMaterials/macros/water.mac
 #Water MatProp
-/matPropTable/water/addProperty RINDEX reusableMaterials/data/water/refIndex.txt eV unitless
-/matPropTable/water/addProperty ABSLENGTH reusableMaterials/data/water/absLength.txt eV m
-/matPropTable/water/addProperty SCINTILLATIONCOMPONENT1 reusableMaterials/data/water/scntComp1.txt eV unitless
-/matPropTable/water/addProperty SCINTILLATIONCOMPONENT2 reusableMaterials/data/water/scntComp2.txt eV unitless
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD 50. 1/MeV
-/matPropTable/water/addConstProperty RESOLUTIONSCALE 1.0
-/matPropTable/water/addConstProperty SCINTILLATIONTIMECONSTANT1 1. ns
-/matPropTable/water/addConstProperty SCINTILLATIONTIMECONSTANT2 10. ns
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD1 0.8
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD2 0.2
+/mpt/water/addProperty RINDEX reusableMaterials/data/water/refIndex.txt eV unitless
+/mpt/water/addProperty ABSLENGTH reusableMaterials/data/water/absLength.txt eV m
+/mpt/water/addProperty SCINTILLATIONCOMPONENT1 reusableMaterials/data/water/scntComp1.txt eV unitless
+/mpt/water/addProperty SCINTILLATIONCOMPONENT2 reusableMaterials/data/water/scntComp2.txt eV unitless
+/mpt/water/addConstProperty SCINTILLATIONYIELD 50. 1/MeV
+/mpt/water/addConstProperty RESOLUTIONSCALE 1.0
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT1 1. ns
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT2 10. ns
+/mpt/water/addConstProperty SCINTILLATIONYIELD1 0.8
+/mpt/water/addConstProperty SCINTILLATIONYIELD2 0.2
 #Miegh
-/matPropTable/water/addProperty MIEHG reusableMaterials/data/water/miegh.txt eV m
-/matPropTable/water/addConstProperty MIEHG_FORWARD 0.99
-/matPropTable/water/addConstProperty MIEHG_BACKWARD 0.99
-/matPropTable/water/addConstProperty MIEHG_FORWARD_RATIO 0.8
+/mpt/water/addProperty MIEHG reusableMaterials/data/water/miegh.txt eV m
+/mpt/water/addConstProperty MIEHG_FORWARD 0.99
+/mpt/water/addConstProperty MIEHG_BACKWARD 0.99
+/mpt/water/addConstProperty MIEHG_FORWARD_RATIO 0.8
 #Userdefined
-#/matPropTable/water/addProperty USERDEFINED reusableMaterials/data/water/miegh.txt eV m true true
+#/mpt/water/addProperty USERDEFINED reusableMaterials/data/water/miegh.txt eV m true true
 water ---G4MaterialPropertiesTable---
 0: RINDEX
 2.034e-06   1.3435
@@ -251,7 +251,7 @@ water ---G4MaterialPropertiesTable---
 Material construction <<air>> has been created.
 /control/execute reusableMaterials/macros/air.mac
 #Air MatProp
-/matPropTable/air/addProperty RINDEX reusableMaterials/data/air/refIndex.txt eV unitless
+/mpt/air/addProperty RINDEX reusableMaterials/data/air/refIndex.txt eV unitless
 air ---G4MaterialPropertiesTable---
 0: RINDEX
 2.034e-06   1
@@ -319,15 +319,15 @@ air ---G4MaterialPropertiesTable---
 3.8185e-06   299.792
 3.9395e-06   299.792
 4.136e-06   299.792
-/control/execute macros/opticalSurface/waterSurface.mac
+/control/execute macros/os/waterSurface.mac
 #Water surface
-/opticalSurface/waterSurface/type dielectric_LUTDAVIS
-/opticalSurface/waterSurface/finish Rough_LUT
+/os/waterSurface/type dielectric_LUTDAVIS
+/os/waterSurface/finish Rough_LUT
 G4OpticalSurface: data file /home/mutu/MyPrograms/geant4-v11.1.1_install/share/Geant4/data/RealSurface2.2/Rough_LUT.z successfully read in.
 LUT DAVIS - data file: Rough_LUT.z read in! 
 G4OpticalSurface: data file /home/mutu/MyPrograms/geant4-v11.1.1_install/share/Geant4/data/RealSurface2.2/Rough_LUTR.z successfully read in.
 LUT DAVIS - reflectivity data file: Rough_LUTR.z read in! 
-/opticalSurface/waterSurface/model DAVIS
+/os/waterSurface/model DAVIS
   Surface type   = 3
   Surface finish = 30
   Surface model  = 3
@@ -336,11 +336,11 @@ LUT DAVIS - reflectivity data file: Rough_LUTR.z read in!
   ----------------- 
  sigma_alpha: 0
 
-/control/execute macros/opticalSurface/airSurface.mac
+/control/execute macros/os/airSurface.mac
 #Air surface
-/opticalSurface/airSurface/type dielectric_dielectric
-/opticalSurface/airSurface/finish polished
-/opticalSurface/airSurface/model glisur
+/os/airSurface/type dielectric_dielectric
+/os/airSurface/finish polished
+/os/airSurface/model glisur
   Surface type   = 1
   Surface finish = 0
   Surface model  = 0
@@ -349,11 +349,11 @@ LUT DAVIS - reflectivity data file: Rough_LUTR.z read in!
   ----------------- 
  polish: 1
 
-/control/execute macros/matPropTable/optAirSurface.mac
+/control/execute macros/mpt/optAirSurface.mac
 #OptAirSurface
-/matPropTable/optAirSurface/addProperty REFLECTIVITY data/matPropTable/air/reflectivity.txt eV unitless
-/matPropTable/optAirSurface/addProperty EFFICIENCY data/matPropTable/air/efficiency.txt eV unitless
-/matPropTable/water/addProperty USERDEFINED reusableMaterials/data/water/miegh.txt eV m true true
+/mpt/optAirSurface/addProperty REFLECTIVITY data/mpt/air/reflectivity.txt eV unitless
+/mpt/optAirSurface/addProperty EFFICIENCY data/mpt/air/efficiency.txt eV unitless
+/mpt/water/addProperty USERDEFINED reusableMaterials/data/water/miegh.txt eV m true true
 World is registered to the default region.
 physicsList->Construct() start.
 

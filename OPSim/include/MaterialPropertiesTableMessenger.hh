@@ -20,7 +20,7 @@ class MaterialPropertiesTableMessenger: public G4UImessenger
     virtual void SetNewValue(G4UIcommand*, G4String);
 
   private:
-    MaterialPropertiesTable  *fMatPropTable;
+    MaterialPropertiesTable  *fMPT;
     G4UIdirectory            *fDirectory1;
     G4UIdirectory            *fDirectory2;
     G4UIcommand              *fAddPropertyCmd;

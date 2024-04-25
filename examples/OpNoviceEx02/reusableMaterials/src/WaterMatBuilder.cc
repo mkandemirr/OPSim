@@ -8,12 +8,12 @@
 //#include "MaterialManager.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-WaterMatBuilder::WaterMatBuilder(G4bool enableOpticalProperty):
-VMaterialBuilder(enableOpticalProperty) 
+WaterMatBuilder::WaterMatBuilder(G4bool enableMPT):
+VMaterialBuilder(enableMPT) 
 {
-  if(enableOpticalProperty)
+  if(enableMPT)
   {
-    pMatPropTable = new MaterialPropertiesTable("water"); 
+    pMPT = new MaterialPropertiesTable("water"); 
     
     G4UImanager* uImanager = G4UImanager::GetUIpointer();
     uImanager->ApplyCommand("/control/execute reusableMaterials/macros/water.mac");  
@@ -25,7 +25,7 @@ VMaterialBuilder(enableOpticalProperty)
 
 WaterMatBuilder::~WaterMatBuilder()
 { 
-  if(pMatPropTable) delete pMatPropTable;
+  if(pMPT) delete pMPT;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

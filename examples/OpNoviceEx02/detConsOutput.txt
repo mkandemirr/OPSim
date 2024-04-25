@@ -29,25 +29,25 @@ G4TaskRunManager :: Using G4ThreadPool...
 
 userDetector->Construct() start.
 Material construction <<water>> has been created.
-/control/execute macros/matPropTable/water.mac
+/control/execute macros/mpt/water.mac
 #Water MatProp
-/matPropTable/water/addProperty RINDEX data/matPropTable/water/refIndex.txt eV unitless
-/matPropTable/water/addProperty ABSLENGTH data/matPropTable/water/absLength.txt eV m
-/matPropTable/water/addProperty SCINTILLATIONCOMPONENT1 data/matPropTable/water/scntComp1.txt eV unitless
-/matPropTable/water/addProperty SCINTILLATIONCOMPONENT2 data/matPropTable/water/scntComp2.txt eV unitless
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD 50. 1/MeV
-/matPropTable/water/addConstProperty RESOLUTIONSCALE 1.0
-/matPropTable/water/addConstProperty SCINTILLATIONTIMECONSTANT1 1. ns
-/matPropTable/water/addConstProperty SCINTILLATIONTIMECONSTANT2 10. ns
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD1 0.8
-/matPropTable/water/addConstProperty SCINTILLATIONYIELD2 0.2
+/mpt/water/addProperty RINDEX data/mpt/water/refIndex.txt eV unitless
+/mpt/water/addProperty ABSLENGTH data/mpt/water/absLength.txt eV m
+/mpt/water/addProperty SCINTILLATIONCOMPONENT1 data/mpt/water/scntComp1.txt eV unitless
+/mpt/water/addProperty SCINTILLATIONCOMPONENT2 data/mpt/water/scntComp2.txt eV unitless
+/mpt/water/addConstProperty SCINTILLATIONYIELD 50. 1/MeV
+/mpt/water/addConstProperty RESOLUTIONSCALE 1.0
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT1 1. ns
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT2 10. ns
+/mpt/water/addConstProperty SCINTILLATIONYIELD1 0.8
+/mpt/water/addConstProperty SCINTILLATIONYIELD2 0.2
 #Miegh
-/matPropTable/water/addProperty MIEHG data/matPropTable/water/miegh.txt eV m
-/matPropTable/water/addConstProperty MIEHG_FORWARD 0.99
-/matPropTable/water/addConstProperty MIEHG_BACKWARD 0.99
-/matPropTable/water/addConstProperty MIEHG_FORWARD_RATIO 0.8
+/mpt/water/addProperty MIEHG data/mpt/water/miegh.txt eV m
+/mpt/water/addConstProperty MIEHG_FORWARD 0.99
+/mpt/water/addConstProperty MIEHG_BACKWARD 0.99
+/mpt/water/addConstProperty MIEHG_FORWARD_RATIO 0.8
 #Userdefined
-#/matPropTable/water/addProperty USERDEFINED data/matPropTable/water/miegh.txt eV m true true
+#/mpt/water/addProperty USERDEFINED data/mpt/water/miegh.txt eV m true true
 water ---G4MaterialPropertiesTable---
 0: RINDEX
 2.034e-06   1.3435
@@ -255,9 +255,9 @@ water ---G4MaterialPropertiesTable---
 36: SCINTILLATIONYIELD1 0.8
 37: SCINTILLATIONYIELD2 0.2
 Material construction <<air>> has been created.
-/control/execute macros/matPropTable/air.mac
+/control/execute macros/mpt/air.mac
 #Air MatProp
-/matPropTable/air/addProperty RINDEX data/matPropTable/air/refIndex.txt eV unitless
+/mpt/air/addProperty RINDEX data/mpt/air/refIndex.txt eV unitless
 air ---G4MaterialPropertiesTable---
 0: RINDEX
 2.034e-06   1
@@ -355,11 +355,11 @@ LUT DAVIS - reflectivity data file: Rough_LUTR.z read in!
   ----------------- 
  polish: 1
 
-/control/execute macros/matPropTable/optAirSurface.mac
+/control/execute macros/mpt/optAirSurface.mac
 #OptAirSurface
-/matPropTable/optAirSurface/addProperty REFLECTIVITY data/matPropTable/air/reflectivity.txt eV unitless
-/matPropTable/optAirSurface/addProperty EFFICIENCY data/matPropTable/air/efficiency.txt eV unitless
-/matPropTable/water/addProperty USERDEFINED data/matPropTable/water/miegh.txt eV m true true
+/mpt/optAirSurface/addProperty REFLECTIVITY data/mpt/air/reflectivity.txt eV unitless
+/mpt/optAirSurface/addProperty EFFICIENCY data/mpt/air/efficiency.txt eV unitless
+/mpt/water/addProperty USERDEFINED data/mpt/water/miegh.txt eV m true true
 World is registered to the default region.
 physicsList->Construct() start.
 

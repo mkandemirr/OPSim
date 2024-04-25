@@ -12,14 +12,14 @@ MaterialPropertiesTableMessenger::MaterialPropertiesTableMessenger
   MaterialPropertiesTable* mpt 
 )
 :G4UImessenger(), 
-fMatPropTable{mpt}, 
+fMPT{mpt}, 
 fDirectory1{nullptr}, 
 fDirectory2{nullptr},
 fAddPropertyCmd{nullptr},
 fAddConstPropertyCmd{nullptr}
 {  
-  G4String rootDirectory     = "/matPropTable/"; 
-  G4String commandDirectory  = "/matPropTable/"+fMatPropTable->GetName()+"/";
+  G4String rootDirectory     = "/mpt/"; 
+  G4String commandDirectory  = "/mpt/"+fMPT->GetName()+"/";
   
   if(!fDirectory1)
   {
@@ -119,33 +119,33 @@ void MaterialPropertiesTableMessenger::SetNewValue
 
     if (createNewKey.empty())
     {
-      fMatPropTable->AddProperty(key,path,energyUnit,valueUnit);
+      fMPT->AddProperty(key,path,energyUnit,valueUnit);
       
     }else if (spline.empty()){
-      fMatPropTable->AddProperty(key,
-                                 path,
-                                 energyUnit,
-                                 valueUnit,
-                                 StoB(createNewKey)
-                                 );
+      fMPT->AddProperty(key,
+                        path,
+                        energyUnit,
+                        valueUnit,
+                        StoB(createNewKey)
+                        );
       
     }else if (propertyValue.empty()){
-      fMatPropTable->AddProperty(key,
-                                 path,
-                                 energyUnit,
-                                 valueUnit,
-                                 StoB(createNewKey),
-                                 StoB(spline)
-                                 );
+      fMPT->AddProperty(key,
+                        path,
+                        energyUnit,
+                        valueUnit,
+                        StoB(createNewKey),
+                        StoB(spline)
+                        );
     }else{
-      fMatPropTable->AddProperty(key,
-                                path,
-                                energyUnit,
-                                valueUnit,
-                                StoB(createNewKey),
-                                StoB(spline),
-                                StoD(propertyValue)
-                                );
+      fMPT->AddProperty(key,
+                        path,
+                        energyUnit,
+                        valueUnit,
+                        StoB(createNewKey),
+                        StoB(spline),
+                        StoD(propertyValue)
+                        );
     }
 
 
@@ -167,7 +167,7 @@ void MaterialPropertiesTableMessenger::SetNewValue
 
     if ( unit.empty() )
     {
-      fMatPropTable->AddConstProperty( key,StoD(value) );
+      fMPT->AddConstProperty( key,StoD(value) );
     }else if ( !G4UnitDefinition::IsUnitDefined(unit) ){ 
       G4ExceptionDescription ed;
       ed << "Undefined unit: <" <<unit<< ">. Command failed.";
@@ -180,7 +180,7 @@ void MaterialPropertiesTableMessenger::SetNewValue
       G4double dimensionedDouble = fAddConstPropertyCmd->
                                     ConvertToDimensionedDouble(r);
       
-      fMatPropTable->AddConstProperty(key,dimensionedDouble); 
+      fMPT->AddConstProperty(key,dimensionedDouble); 
 
     }
 

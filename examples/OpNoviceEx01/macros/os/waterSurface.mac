@@ -1,0 +1,5 @@
+#Water surface
+/os/waterSurface/type dielectric_LUTDAVIS
+/os/waterSurface/finish Rough_LUT
+/os/waterSurface/model DAVIS
+

@@ -5,10 +5,10 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-VMaterialBuilder::VMaterialBuilder(G4bool enableOpticalProperty) : 
+VMaterialBuilder::VMaterialBuilder(G4bool enableMPT) : 
 pNistManager{G4NistManager::Instance()},
-bEnableOpticalProperty{enableOpticalProperty},
-pMatPropTable{nullptr}
+bEnableMPT{enableMPT},
+pMPT{nullptr}
 {
 }
 
@@ -25,9 +25,9 @@ G4Material* VMaterialBuilder::GetProduct()
 {
   G4Material* mat = Build();
   
-  if(IsOpticalPropertyEnabled())
+  if(IsMPTEnabled())
   {
-    mat->SetMaterialPropertiesTable(pMatPropTable);
+    mat->SetMaterialPropertiesTable(pMPT);
   }
     
   return mat;

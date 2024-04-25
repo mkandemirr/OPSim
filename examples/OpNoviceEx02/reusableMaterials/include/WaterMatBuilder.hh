@@ -10,7 +10,7 @@ class G4Material;
 class WaterMatBuilder: public VMaterialBuilder{
 
   public:
-    WaterMatBuilder(G4bool enableOpticalProperty=false); 
+    WaterMatBuilder(G4bool enableMPT = false); 
     virtual ~WaterMatBuilder();
 
     virtual G4Material* Build() override;

@@ -1,0 +1,3 @@
+#Air MatProp
+/mpt/air/addProperty RINDEX data/mpt/air/refIndex.txt eV unitless 
+

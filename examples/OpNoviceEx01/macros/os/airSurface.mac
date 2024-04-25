@@ -1,0 +1,5 @@
+#Air surface
+/os/airSurface/type dielectric_dielectric
+/os/airSurface/finish polished
+/os/airSurface/model glisur
+

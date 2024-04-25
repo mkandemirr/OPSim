@@ -13,22 +13,22 @@ class G4NistManager;
 class VMaterialBuilder{
 
   public:
-    VMaterialBuilder(G4bool enableOpticalProperty = false); 
+    VMaterialBuilder(G4bool enableMPT = false); 
     virtual ~VMaterialBuilder();
 
     G4Material* GetProduct();
   
     MaterialPropertiesTable* GetMaterialPropertiesTable() const  
-      {return pMatPropTable; }
+      {return pMPT; }
     
-    G4bool IsOpticalPropertyEnabled() {return bEnableOpticalProperty;}
+    G4bool IsMPTEnabled() {return bEnableMPT;}
     
   protected:
     virtual G4Material* Build() = 0;    
     
     G4NistManager* pNistManager;  
-    G4bool bEnableOpticalProperty;
-    MaterialPropertiesTable* pMatPropTable;   
+    G4bool bEnableMPT;
+    MaterialPropertiesTable* pMPT;   
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -1,0 +1,5 @@
+#OptAirSurface
+
+/mpt/optAirSurface/addProperty REFLECTIVITY data/mpt/air/reflectivity.txt eV unitless
+/mpt/optAirSurface/addProperty EFFICIENCY data/mpt/air/efficiency.txt eV unitless 
+

@@ -24,8 +24,8 @@ fSurfaceSigmaAlphaCmd{nullptr},
 fSurfacePolishCmd{nullptr}
 {
 
-  G4String rootDirectory     = "/opticalSurface/"; 
-  G4String commandDirectory  = "/opticalSurface/"+fOptSurface->GetName()+"/";
+  G4String rootDirectory     = "/os/"; 
+  G4String commandDirectory  = "/os/"+fOptSurface->GetName()+"/";
   
   if(fDirectory)
   {

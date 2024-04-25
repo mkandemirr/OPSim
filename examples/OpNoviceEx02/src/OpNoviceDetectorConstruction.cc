@@ -126,7 +126,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
   G4UImanager* uImanager = G4UImanager::GetUIpointer(); 
   
   OpticalSurface* opWaterSurface = new OpticalSurface("waterSurface");
-  uImanager->ApplyCommand("/control/execute macros/opticalSurface/" + 
+  uImanager->ApplyCommand("/control/execute macros/os/" + 
     opWaterSurface->GetName()+".mac");
   //********************************************************//
    
@@ -142,7 +142,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
   
   //**********Usage of OPSim classes*********************//
   OpticalSurface* opAirSurface = new OpticalSurface("airSurface");
-  uImanager->ApplyCommand("/control/execute macros/opticalSurface/" + 
+  uImanager->ApplyCommand("/control/execute macros/os/" + 
     opAirSurface->GetName()+".mac");
   //********************************************************//
    
@@ -156,7 +156,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
 
   //**********Usage of OPSim classes*********************//
   MaterialPropertiesTable* myST2 = new MaterialPropertiesTable("optAirSurface");
-  uImanager->ApplyCommand("/control/execute macros/matPropTable/" + 
+  uImanager->ApplyCommand("/control/execute macros/mpt/" + 
     myST2->GetName()+".mac");
   //*******************************************************//
   
@@ -183,7 +183,7 @@ G4VPhysicalVolume* OpNoviceDetectorConstruction::Construct()
   }
   
   //**********Usage of OPSim classes*********************//
-  uImanager->ApplyCommand("/matPropTable/water/addProperty USERDEFINED " 
+  uImanager->ApplyCommand("/mpt/water/addProperty USERDEFINED " 
     "reusableMaterials/data/water/miegh.txt eV m true true");
   //***************************************************//
   

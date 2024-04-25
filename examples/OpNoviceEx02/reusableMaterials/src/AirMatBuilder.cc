@@ -8,12 +8,12 @@
 //#include "MaterialManager.hh"
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-AirMatBuilder::AirMatBuilder(G4bool enableOpticalProperty):
-VMaterialBuilder(enableOpticalProperty) 
+AirMatBuilder::AirMatBuilder(G4bool enableMPT):
+VMaterialBuilder(enableMPT) 
 {
-  if(enableOpticalProperty)
+  if(enableMPT)
   {
-    pMatPropTable = new MaterialPropertiesTable("air"); 
+    pMPT = new MaterialPropertiesTable("air"); 
     
     G4UImanager* uImanager = G4UImanager::GetUIpointer();
     uImanager->ApplyCommand("/control/execute reusableMaterials/macros/air.mac");  
@@ -25,7 +25,7 @@ VMaterialBuilder(enableOpticalProperty)
 
 AirMatBuilder::~AirMatBuilder()
 { 
-  if(pMatPropTable) delete pMatPropTable;
+  if(pMPT) delete pMPT;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

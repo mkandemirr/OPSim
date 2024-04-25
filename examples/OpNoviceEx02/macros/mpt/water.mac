@@ -1,0 +1,24 @@
+#Water MatProp
+
+/mpt/water/addProperty RINDEX data/mpt/water/refIndex.txt eV unitless 
+/mpt/water/addProperty ABSLENGTH data/mpt/water/absLength.txt eV m 
+
+/mpt/water/addProperty SCINTILLATIONCOMPONENT1 data/mpt/water/scntComp1.txt eV unitless
+/mpt/water/addProperty SCINTILLATIONCOMPONENT2 data/mpt/water/scntComp2.txt eV unitless
+
+/mpt/water/addConstProperty SCINTILLATIONYIELD 50. 1/MeV
+/mpt/water/addConstProperty RESOLUTIONSCALE 1.0
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT1 1. ns
+/mpt/water/addConstProperty SCINTILLATIONTIMECONSTANT2 10. ns
+/mpt/water/addConstProperty SCINTILLATIONYIELD1 0.8 
+/mpt/water/addConstProperty SCINTILLATIONYIELD2 0.2 
+
+#Miegh
+/mpt/water/addProperty MIEHG data/mpt/water/miegh.txt eV m
+
+/mpt/water/addConstProperty MIEHG_FORWARD 0.99
+/mpt/water/addConstProperty MIEHG_BACKWARD 0.99
+/mpt/water/addConstProperty MIEHG_FORWARD_RATIO 0.8
+
+#Userdefined
+#/mpt/water/addProperty USERDEFINED data/mpt/water/miegh.txt eV m true true
