@@ -3,6 +3,7 @@
 #define ScintillatorBuilder_h 1
 
 #include "VMaterialBuilder.hh"
+#include <vector>
 
 class G4Material;
 
